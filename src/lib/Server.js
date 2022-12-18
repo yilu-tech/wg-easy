@@ -4,6 +4,7 @@ const path = require('path');
 
 const express = require('express');
 const expressSession = require('express-session');
+var FileStore = require('session-file-store')(expressSession);
 const debug = require('debug')('Server');
 
 const Util = require('./Util');
@@ -25,7 +26,8 @@ module.exports = class Server {
       .use('/', express.static(path.join(__dirname, '..', 'www')))
       .use(express.json())
       .use(expressSession({
-        secret: String(Math.random()),
+        store: new FileStore({}),
+        secret: "dfgasgfdqweffasdagradsfwerqwe",
         resave: true,
         saveUninitialized: true,
       }))
