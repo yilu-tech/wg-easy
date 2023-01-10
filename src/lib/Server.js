@@ -137,7 +137,7 @@ module.exports = class Server {
         return WireGuard.updateClientAddress({ clientId, address });
       }))
 
-      .listen(PORT, () => {
+      .listen(PORT, '0.0.0.0',() => {
         debug(`Listening on http://0.0.0.0:${PORT}`);
       });
   }
