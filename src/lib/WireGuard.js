@@ -308,9 +308,9 @@ Endpoint = ${WG_HOST}:${WG_PORT}`;
   async updateClientAddress({ clientId, address }) {
     const client = await this.getClient({ clientId });
 
-    if (!Util.isValidIPv4(address)) {
-      throw new ServerError(`Invalid Address: ${address}`, 400);
-    }
+    // if (!Util.isValidIPv4(address)) {
+    //   throw new ServerError(`Invalid Address: ${address}`, 400);
+    // }
 
     client.address = address;
     client.updatedAt = new Date();
